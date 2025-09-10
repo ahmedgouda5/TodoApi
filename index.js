@@ -4,10 +4,10 @@ import dotenv from "dotenv";
 import userrouter from "./Routers/user.route.js";
 import todoRouter from "./Routers/todo.route.js";
 import cors from "cors";
+const app = express(); // ✅ عرّف app الأول
 
 dotenv.config();
 
-const app = express(); // ✅ عرّف app الأول
 
 // Middleware
 app.use(cors());
