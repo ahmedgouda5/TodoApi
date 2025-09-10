@@ -7,11 +7,10 @@ import cors from "cors";
 
 dotenv.config();
 
-app.use(cors())
+const app = express(); // ✅ عرّف app الأول
 
-const app = express();
-
-// Middleware عشان نقدر نقرأ JSON
+// Middleware
+app.use(cors());
 app.use(express.json());
 
 // MongoDB connection
