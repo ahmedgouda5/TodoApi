@@ -1,0 +1,5 @@
+const SUCCESS=201;
+const ERROR=404;
+const FAIL=500;
+
+export {SUCCESS,ERROR,FAIL};
