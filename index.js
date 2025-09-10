@@ -4,10 +4,10 @@ import dotenv from "dotenv";
 import userrouter from "./Routers/user.route.js";
 import todoRouter from "./Routers/todo.route.js";
 import cors from "cors";
-const app = express(); // ✅ عرّف app الأول
 
 dotenv.config();
 
+const app = express();
 
 // Middleware
 app.use(cors());
@@ -16,11 +16,7 @@ app.use(express.json());
 // MongoDB connection
 const url = process.env.MONGODB_URI;
 
-mongoose
-  .connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+mongoose.connect(url)
   .then(() => console.log("✅ MongoDB connected successfully"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
@@ -39,5 +35,5 @@ app.use((req, res, next) => {
 // Start server
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
-  console.log(`🚀 Server is running on http://localhost:${PORT}`);
+  console.log(`🚀 Server is running on port ${PORT}`);
 });
